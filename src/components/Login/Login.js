@@ -4,6 +4,7 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 import AuthContext from '../../store/auth-context';
+import Input from '../UI/Input/Input';
 
 const emailReducer = (state,action) => {
   if(action.type === 'USER_INPUT') {
@@ -96,7 +97,8 @@ const ctx = useContext(AuthContext);
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
+
+        {/* <div
           className={`${classes.control} ${
             emailState.isValid === false ? classes.invalid : ''
           }`}
@@ -109,7 +111,9 @@ const ctx = useContext(AuthContext);
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
-        </div>
+        </div> */}
+        <Input classes ={classes} emailState={emailState} emailChangeHandler={emailChangeHandler} 
+        validateEmailHandler={validateEmailHandler} />
         <div
           className={`${classes.control} ${
             passwordState.isValid === false ? classes.invalid : ''
